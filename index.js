@@ -401,13 +401,15 @@
         whenDefined: whenDefined
       }
     });
-    defineProperty(HTMLBuiltIn.prototype = HTMLElement.prototype, 'constructor', {
-      value: HTMLBuiltIn
-    });
-    defineProperty(self, 'HTMLElement', {
-      configurable: true,
-      value: HTMLBuiltIn
-    });
+    if (HTMLElement.prototype!= null) {
+      defineProperty(HTMLBuiltIn.prototype = HTMLElement.prototype, 'constructor', {
+        value: HTMLBuiltIn
+      });
+      defineProperty(self, 'HTMLElement', {
+        configurable: true,
+        value: HTMLBuiltIn
+      });
+    }
     defineProperty(document$1, 'createElement', {
       configurable: true,
       value: function value(name, options) {
